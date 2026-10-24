@@ -6,7 +6,11 @@ assets. Preparation passed; **no supporter registration, mint, transfer, listing
 or ENS write is claimed**. Tracking:
 [DecentBusking #246](https://github.com/TheJollyLaMa/DecentBusking/issues/246).
 
-## First mint candidate: v0.2.0
+## First mint candidate: v0.2.1
+
+The v0.2.0 render exposed an obsolete v0.1.0 development-draft label in the
+demo. Remove that stale label in a new immutable patch release before minting;
+v0.2.0 pins remain preserved and are not mint candidates.
 
 The steward reduced supply to **100 editions at 10 Base USDC** and requested
 verified ENS/IPFS sites before minting. Publish a new immutable version; the

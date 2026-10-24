@@ -23,6 +23,7 @@ test('release root renders the actual widget rather than a supporter-card landin
   assert.match(text('index.html'), /widget = mount\(element/);
   assert.match(text('index.html'), /id="advertising"/);
   assert.equal(text('index.html'), text('widget.html'));
+  assert.doesNotMatch(text('index.html'), /v0\.1\.0 development draft/);
 });
 
 test('supporter/ENS preparation records requested terms without inventing release evidence', () => {
