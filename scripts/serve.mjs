@@ -10,7 +10,7 @@ createServer(async (request, response) => {
   try {
     const pathname = decodeURIComponent(new URL(request.url, 'http://localhost').pathname);
     if (pathname.split('/').some(part => part.startsWith('.'))) throw new Error('Not public');
-    const file = path.resolve(root, `.${pathname === '/' ? '/widget.html' : pathname}`);
+    const file = path.resolve(root, `.${pathname === '/' ? '/index.html' : pathname}`);
     if (!file.startsWith(`${root}${path.sep}`) || !(await stat(file)).isFile()) throw new Error('Not found');
     response.writeHead(200, { 'Content-Type': `${types[path.extname(file)] || 'application/octet-stream'}; charset=utf-8`, 'Cache-Control': 'no-store' });
     response.end(await readFile(file));

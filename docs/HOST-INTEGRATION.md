@@ -39,31 +39,20 @@ existing signed Busking worker, this real adapter reuses its uploader:
 
 ```js
 import { mount } from './dvert/widget.js';
-import { createBrowserIpfsUploader } from './dvert/vendor/busking/js/ipfs-upload.js?v=20261015-mime-sniff';
+import { createWorkerBinaryUpload } from './dvert/binary-upload.js';
 
 const widget = mount(document.getElementById('advertising'), {
-  async uploadMedia(file, { session, signer, wallet, signal, serviceUrl }) {
-    // This host explicitly supports its signed Pinata-worker transport only.
-    // No transport is inferred or silently changed from a session identifier.
-    if (session.snapshot().provider !== 'pinata') {
-      throw new Error('This host binary adapter requires its configured Pinata worker');
-    }
-    signal.throwIfAborted();
-    const state = wallet.snapshot();
-    const upload = createBrowserIpfsUploader({
-      provider: 'pinata', serviceUrl, signer, address: state.address,
-      origin: location.origin, purpose: 'submission', retries: 0,
-      fetchImpl: (url, init = {}) => fetch(url, {
-        ...init,
-        signal: AbortSignal.any([signal, ...(init.signal ? [init.signal] : [])])
-      })
-    });
-    const uri = await upload(file);
-    signal.throwIfAborted();
-    return uri; // Actual verified worker response, not a manufactured CID.
-  }
+  uploadMedia: createWorkerBinaryUpload()
 });
 ```
+
+`binary-upload.js` is an explicit Pinata-worker-only adapter: it checks the
+shared session selection, requires the Base wallet, uses the original signed
+`/api/ipfs/submission-upload-url` route, then uploads the **File bytes as multipart**
+to the returned signed URL. It never calls `head.getIpfs().upload`. Cancellation
+prevents subsequent requests; public bytes already accepted cannot be recalled.
+It requests a wallet **message signature on the user's submit gesture**, so do
+not exercise this capability while the signature pause remains in effect.
 
 This example must still pass the existing worker's authentication, origin,
 rate-limit and media restrictions. It cannot self-authorize a new host origin,

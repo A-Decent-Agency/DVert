@@ -138,12 +138,29 @@ export function mount(element, options = {}) {
     }
     // JsonRpcSigner does not call eth_requestAccounts, unlike BrowserProvider.getSigner.
     const raw = new ethers.JsonRpcSigner(snapshot.provider, snapshot.address);
-    const signer = new Proxy(raw, {
+    const guardedProvider = new Proxy(snapshot.provider, {
       get(target, property) {
         const value = Reflect.get(target, property, target);
+        if (property === 'getNetwork') return async () => {
+          assertWallet(snapshot);
+          const network = await value.call(target);
+          assertWallet(snapshot);
+          if (Number(network.chainId) !== 8453) throw new Error('The host provider is not on Base; switch using the existing header');
+          return network;
+        };
         return typeof value === 'function' ? (...args) => {
           assertWallet(snapshot);
           return value.apply(target, args);
+        } : value;
+      },
+    });
+    const signer = new Proxy(Object.create(null), {
+      get(_target, property) {
+        if (property === 'provider') return guardedProvider;
+        const value = Reflect.get(raw, property, raw);
+        return typeof value === 'function' ? (...args) => {
+          assertWallet(snapshot);
+          return value.apply(raw, args);
         } : value;
       },
     });

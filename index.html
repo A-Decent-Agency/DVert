@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>DVert · cloneable advertising widget</title>
+  <style>
+    body { margin: 0; background: #0d1117; color: #f6efdd; font: 16px/1.6 system-ui, sans-serif; }
+    main { max-width: 1060px; margin: 30px auto; padding: 20px; }
+    a { color: #f5cf66; }
+    .demo-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, 480px); gap: 24px; align-items: start; }
+    button, select { font: inherit; padding: 8px 12px; }
+    #demo-status { min-height: 2em; }
+    @media (max-width: 950px) { .demo-layout { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>DVert</h1>
+    <p>DVert.decentagency.eth · advertising widget · v0.1.0 development draft</p>
+    <div class="demo-layout">
+      <section aria-labelledby="demo-heading">
+        <h2 id="demo-heading">Your host. Your adverts.</h2>
+        <p>This is the real advertising panel, not an iframe or a payment simulation. Public data comes from the existing Busking worker and Base contracts. Service failures are shown explicitly.</p>
+        <p>The widget never creates another wallet or storage session. On this standalone page it is read-only unless a host has already installed DecentHead. Connect in your host’s header, not in a second DVert login.</p>
+        <p>Campaigns cost 5 USDC/week plus the existing worker-gas ETH top-up and network gas. Optional two-tier paid priority does not purchase or renew a campaign. Read the panel’s instructions before any wallet action.</p>
+        <label for="theme">Example customization</label>
+        <select id="theme"><option value="gold">Gold machine</option><option value="mint">Mint broadcast</option><option value="violet">Violet studio</option></select>
+        <p><button id="destroy" type="button">Destroy widget</button> <button id="remount" type="button">Mount widget</button></p>
+        <p id="demo-status" role="status" aria-live="polite">Mounted with real service configuration. No transaction is made by this demo.</p>
+        <p><a href="./README.md">Clone/embed/customize guide</a> · <a href="./docs/RELEASE-PREPARATION.md">Unsigned release gates</a></p>
+        <p>No supporter token, ENS registration, mint, listing or IPFS release is claimed.</p>
+      </section>
+      <div id="advertising" aria-label="DVert demo mount"></div>
+    </div>
+  </main>
+  <script type="module">
+    import { mount } from './widget.js';
+    const element = document.getElementById('advertising');
+    const status = document.getElementById('demo-status');
+    const themes = {
+      gold: { accent: '#f5cf66', background: '#17140f' },
+      mint: { accent: '#7df0c7', background: '#10221e' },
+      violet: { accent: '#d6acff', background: '#21152e' },
+    };
+    let widget;
+    function start() {
+      if (widget) return;
+      widget = mount(element, { theme: themes[document.getElementById('theme').value] });
+      status.textContent = 'Mounted with the existing real worker and Base contracts. No wallet action performed.';
+    }
+    document.getElementById('destroy').addEventListener('click', () => {
+      widget?.destroy(); widget = null;
+      status.textContent = 'Destroyed: listeners, requests, timers and media are stopped.';
+    });
+    document.getElementById('remount').addEventListener('click', start);
+    document.getElementById('theme').addEventListener('change', () => { widget?.destroy(); widget = null; start(); });
+    window.addEventListener('pagehide', () => widget?.destroy(), { once: true });
+    start();
+  </script>
+</body>
+</html>

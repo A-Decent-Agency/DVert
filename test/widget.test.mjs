@@ -115,7 +115,7 @@ async function fixture({ connected = false, pending = false, ...options } = {}) 
   active.push(async () => { controller.destroy(); await settle(); dom.window.close(); });
   await settle();
   return { dom, window, element, root: element.shadowRoot, controller, calls, requests, listeners, timers, head, ipfs, wallet, paid, catalog,
-    queued, ethers: { Contract, JsonRpcSigner },
+    queued, provider, ethers: { Contract, JsonRpcSigner },
     state(next) { state = next; for (const callback of listeners) callback(state); },
     async close() { controller.destroy(); await settle(); dom.window.close(); } };
 }
@@ -290,6 +290,19 @@ test('host ethers can load after mount without creating a second session', async
   await settle();
   assert.equal(ui.calls.paid.length, 1);
   assert.equal(ui.calls.connect, 0);
+  await ui.close();
+});
+
+test('stale host chain snapshots fail closed without switching another injected wallet', async () => {
+  const ui = await fixture({ connected: true });
+  let switches = 0;
+  ui.window.ethereum = { request() { switches++; throw new Error('No wallet switch is authorized'); } };
+  ui.provider.getNetwork = async () => ({ chainId: 1n });
+  ui.root.querySelector('#devert-paid-queue-button').click();
+  await settle();
+  assert.equal(ui.calls.paid.length, 0);
+  assert.equal(switches, 0);
+  assert.match(ui.root.querySelector('#devert-paid-status').textContent, /host provider is not on Base/);
   await ui.close();
 });
 

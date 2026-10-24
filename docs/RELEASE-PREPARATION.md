@@ -29,18 +29,63 @@ No ENS namehash, transaction hash, CID or token ID is invented here.
 
 `releases/v0.1.0-draft/supporter-inputs.json` records the requested **1,000 editions,
 10 USDC each, Base chain 8453, 1,000 bps (10%) royalty signal**. ERC-1155 edition
-token/listing addresses and IDs are unset; the royalty recipient must be
-confirmed by the steward. The royalty field is a signal, not a guaranteed payment.
+token/listing addresses and IDs are unset. Approved royalty recipient
+`decentagency.eth` resolved to `0xcAeEd8422fB5682C298B7F0971906d446fFd4e7a`
+in the parent coordinator's read-only Ethereum block **26262074** verification.
+The draft metadata now records that recipient, not a fabricated contract address.
+Recheck resolution before any eventual signature. The royalty field is a signal,
+not a guaranteed payment. **Primary-sales routing is unconfirmed**; the existing
+escrow retains proceeds, and royalty intent does not reroute primary sales.
 No investment, financial return or buyer purchase is represented.
+
+The user approved both hosted-service embeds and documented independent
+deployments, with publication only after verification and **wallet signatures
+still paused**. At the parent coordinator's Base block **53025207** check, the
+Agency wallet was **not** a current NFT admin. The requested plan is to add it
+as another `DEFAULT_ADMIN_ROLE` holder without revoking the personal admin;
+the parent prepares that verified unsigned grant plan. No grant is executed
+or implied here, and the product does not duplicate a transaction plan.
 
 `metadata.draft.json` is not a deployable/pinned token URI. `image`,
 `animation_url`, mint/listing data and release date remain null. The front is an
 actual-product read-only screenshot; the back is a versioned provenance SVG.
 `presentation.html` references those local files. None has been pinned.
 
+## Pinned product release pipeline (not executed)
+
+The two `.github/workflows/supporter-*.yml` callers use the real DecentHead
+[product kit](https://github.com/TheJollyLaMa/DecentHead/blob/3b2a72f7f8c49fb2af89ea7df2ead8e338e0e870/docs/SUPPORTER-PRODUCTS.md).
+Both `uses` and `head_ref` are pinned to
+`3b2a72f7f8c49fb2af89ea7df2ead8e338e0e870`. The product root `index.html`
+renders the actual widget; `widget.html` remains its tested equivalent alias.
+The kit screenshots the tagged root site rather than our old draft artwork.
+
+After a **verified** source release, the preparation caller runs on a published
+release or explicit tag dispatch. It needs the repository `PINATA_JWT` secret,
+renders the product, pins the source/site/art/metadata, attaches
+`supporter-release.json`, and opens the mint checklist. It submits no chain
+transactions but **does publish/pin**, so it has not been dispatched here.
+Parent coordination handles credentials and release authority; no secret
+value is copied. Missing configured credentials remain a release blocker.
+
+Set `SUPPORTER_ENS_NAME=dvert.decentagency.eth` only after the steward's name
+control is verified. The scheduled/release/manual announce caller stays
+**disabled unless `SUPPORTER_DISCORD_ENABLED` is exactly `true`**. Keep it off
+until a separately authorized announcement is ready. Later it requires
+`DISCORD_SUPPORTER_WEBHOOK`, verified mint/listing evidence and (when configured)
+ENS content pointing at the pinned exact-version site. No workflow execution,
+Discord post, ENS edit or verified release manifest is claimed by adding callers.
+
+The kit's mint issue requires the actual royalty receiver to be chosen by the
+steward; carry the approved Agency royalty address from our release inputs into
+that separately signed plan. Do not infer changed primary-sales routing or an
+already-granted Agency admin role from generated metadata or the issue.
+
 ## Remaining gates (later explicit authority required)
 
-- Review/merge source PRs only if the steward later authorizes it; no merge now.
+- Review source PRs and their required tests before a steward-authorized merge.
+  This product task does not merge; the source lock remains the original exact
+  extraction even when an integration commit later incorporates that source.
 - Select the exact final **product** commit, version tag and archive checksum.
   The current source lock already pins the upstream extraction, not a tagged
   product release. Do not rewrite that distinction.

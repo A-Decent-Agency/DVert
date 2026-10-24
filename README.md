@@ -12,6 +12,13 @@ gates, wallet-owned adverts, removal, eligible refunds and public funding histor
 display name, not a claim that ENS records were registered or changed.
 No supporter token, stock, listing, IPFS pin or release transaction is claimed.
 
+Choose [hosted-service onboarding](docs/ONBOARDING.md) to reuse the existing
+shared worker/contracts, or the [independent deployment runbook](docs/INDEPENDENT-DEPLOYMENT.md)
+for a separately operated Base/worker stack. Both modes are approved; independent
+deployment needs reviewed operator-specific contract-script adaptation and
+playback/mirror infrastructure, **not** just a changed service URL. Publication
+requires verification; wallet signatures remain paused.
+
 ## Clone and run
 
 ```sh
@@ -36,6 +43,7 @@ For native DOM tests only (Node 24):
 npm ci --ignore-scripts --no-audit --no-fund
 npm test
 npm run verify
+npm run preflight # GET-only hosted worker snapshot checks; no wallet
 ```
 
 ## Embed in an existing host
