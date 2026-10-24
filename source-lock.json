@@ -1,7 +1,7 @@
 {
   "repository": "https://github.com/TheJollyLaMa/DecentBusking",
-  "commit": "701b931d3f197b0addcfba192d2be5d25ff5dfb4",
-  "archiveUrl": "https://github.com/TheJollyLaMa/DecentBusking/archive/701b931d3f197b0addcfba192d2be5d25ff5dfb4.tar.gz",
+  "commit": "948289670ed43678ea0dcaeafd8ea487bd78a2b0",
+  "archiveUrl": "https://github.com/TheJollyLaMa/DecentBusking/archive/948289670ed43678ea0dcaeafd8ea487bd78a2b0.tar.gz",
   "license": "Apache-2.0; non-code creative content CC-BY-4.0",
   "files": {
     "js/devert-tab.mjs": {
@@ -77,13 +77,13 @@
       "bytes": 18657
     },
     "index.html": {
-      "sha256": "0e215c25db5defd2d8e850e979e9cb856ee64dccbaffe500abd650bc2303e615",
-      "bytes": 85375,
+      "sha256": "4adbf63faf836bf26328cdcad7c4bd5ee92ce95bd737ff3ff863e427d9d9aa92",
+      "bytes": 85407,
       "generatedInput": true
     },
     "css/styles.css": {
-      "sha256": "5c40b0f3933f275db70764036f718307baaf7bcc544223df471e571673cdce1a",
-      "bytes": 200165,
+      "sha256": "8e9b693bb77f7fc0825be4d916282411901f3fd72c8556a54b3513fea8f743fc",
+      "bytes": 200223,
       "generatedInput": true
     }
   },
