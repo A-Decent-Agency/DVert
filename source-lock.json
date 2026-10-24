@@ -1,0 +1,94 @@
+{
+  "repository": "https://github.com/TheJollyLaMa/DecentBusking",
+  "commit": "701b931d3f197b0addcfba192d2be5d25ff5dfb4",
+  "archiveUrl": "https://github.com/TheJollyLaMa/DecentBusking/archive/701b931d3f197b0addcfba192d2be5d25ff5dfb4.tar.gz",
+  "license": "Apache-2.0; non-code creative content CC-BY-4.0",
+  "files": {
+    "js/devert-tab.mjs": {
+      "sha256": "7acbd61b8513cd1acc21361134f19eb2d25cc80c392a956ef707876cb61c09c0",
+      "bytes": 41870
+    },
+    "js/devert-radio-adapter.mjs": {
+      "sha256": "9642bc5abed67be4925cebcce2c2b9400ddbe11e775e71b4bdf72cf41ea420e7",
+      "bytes": 333
+    },
+    "js/ipfs-upload.js": {
+      "sha256": "f84c67e2ff4ed1a5ad76810949703288283b613ce055a514e22f20ac8f5bbc4d",
+      "bytes": 11691
+    },
+    "js/ipfs-gateway.js": {
+      "sha256": "7660420d4c7725dc577d23ae55b3a2a7ad074347d2b11597de1db07f6ed25e91",
+      "bytes": 973
+    },
+    "js/mint-submission.js": {
+      "sha256": "2e72685597024f19e6e27ca4142c87dfe753781f14c763ba65c588c864dbb5ce",
+      "bytes": 2526
+    },
+    "js/base-chain.mjs": {
+      "sha256": "2922972e354a56ed050b83728f92e485568ee50b5a02c364278b0f2caf4d6811",
+      "bytes": 8286
+    },
+    "js/devert-scheduler.mjs": {
+      "sha256": "a85c9d937fadcdd04a09aa6cf8697a00d590b0a13c3946d2933d6297f31f93f6",
+      "bytes": 5323
+    },
+    "js/devert-payment.mjs": {
+      "sha256": "8b7343d42d8a78e6cc88f4573692bccf3db927e10f0ca5fbbf7be9284ffb5876",
+      "bytes": 363
+    },
+    "js/payment-celebration.mjs": {
+      "sha256": "839416890757100c92714b4380dcebe597519f48bc0c5204421e77ce1773b3dc",
+      "bytes": 36728
+    },
+    "js/usdc-format.mjs": {
+      "sha256": "fe6a902987d7f17e89db7e39c22f1e7c4b54a8f9e25bf0ecbdf3e967f63772ac",
+      "bytes": 316
+    },
+    "js/devert-campaigns.mjs": {
+      "sha256": "dbd919e553c838556dbb74f2b8893b952a9d9892a0c86b3e04cf4b9ed62da810",
+      "bytes": 1476
+    },
+    "js/devert-paid-queue.mjs": {
+      "sha256": "4b92fff36bac0db762ccc0f15740f1644387230961664efda6f7c449682337b8",
+      "bytes": 11846
+    },
+    "js/devert-queue.mjs": {
+      "sha256": "16dcdc7c13874906617d69bbac247987bbd5d295d8366fb48dd2b085f52f7976",
+      "bytes": 6337
+    },
+    "js/usdc-abi.mjs": {
+      "sha256": "93337c0820341ee9d1d239a6ebce8e14e4747096271e7879da549542218d6a55",
+      "bytes": 259
+    },
+    "js/devert-history.mjs": {
+      "sha256": "e44dce930edd2d74fa3fb9621910af59fb3f59799443c201a5d7b991f141f7c4",
+      "bytes": 7273
+    },
+    "LICENSE": {
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "bytes": 11358
+    },
+    "NOTICE": {
+      "sha256": "032dda592e0c96a4f0db9f6f5044bfa0d3ddf29021d404f5159c319efae90786",
+      "bytes": 1591
+    },
+    "LICENSES/CC-BY-4.0.txt": {
+      "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+      "bytes": 18657
+    },
+    "index.html": {
+      "sha256": "0e215c25db5defd2d8e850e979e9cb856ee64dccbaffe500abd650bc2303e615",
+      "bytes": 85375,
+      "generatedInput": true
+    },
+    "css/styles.css": {
+      "sha256": "5c40b0f3933f275db70764036f718307baaf7bcc544223df471e571673cdce1a",
+      "bytes": 200165,
+      "generatedInput": true
+    }
+  },
+  "generated": {
+    "vendor/busking/panel.mjs": "03e102c0b60fc6ebd693383a1424f2bc4aee48859674b42ab5494d7236de8909",
+    "vendor/busking/styles.mjs": "c4d4f1f066a383d8e8a1f71c12f0611eca7eb466490d00b562ff9e497beda01e"
+  }
+}

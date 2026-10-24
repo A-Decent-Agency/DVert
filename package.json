@@ -1,0 +1,17 @@
+{
+  "name": "@a-decent-agency/dvert",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Cloneable DVert advertising widget; unsigned, unreleased supporter draft",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "jsdom": "^26.1.0"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "verify": "node scripts/verify-source.mjs",
+    "serve": "node scripts/serve.mjs",
+    "vendor": "node scripts/vendor-busking.mjs"
+  }
+}

@@ -1,0 +1,3 @@
+# Preserve the upstream legal text byte-for-byte, including its terminal blank line.
+LICENSES/CC-BY-4.0.txt -whitespace
+vendor/busking/LICENSES/CC-BY-4.0.txt -whitespace
