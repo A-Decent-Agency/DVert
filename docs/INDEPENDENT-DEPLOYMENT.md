@@ -262,7 +262,7 @@ isolated DVert-only worker/container in this product.
 | `IPFS_UPLOAD_PROVIDER=pinata`, `PINATA_JWT` | Existing paid-journal/removal/approval persistence requires Pinata; JWT stays server-side. A header's JSON backup transport is not a substitute. |
 | `PINATA_API_URL`, `PINATA_SIGN_URL`, `PINATA_FILES_API_URL` | Existing `.env.example` endpoints default to Pinata v3 files/sign/files APIs. |
 | `PUBLIC_WORKER_URL`, `IPFS_ALLOWED_ORIGINS` | Actual TLS worker origin and exact allowed browser origins; update them deliberately, not by wildcard inference. |
-| `MINT_OWNER_WALLET` | Existing worker/NFT owner authorization address. Agency ENS is **not** currently an NFT admin; a planned non-revoking role grant is not an executed grant. Do not substitute identities blindly. |
+| `MINT_OWNER_WALLET` | Existing worker/NFT owner authorization address. The personal wallet remains the supporter NFT admin; the Agency wallet controls ENS only. The earlier Agency NFT-admin grant proposal is withdrawn. Do not substitute identities blindly. |
 | `BASE_RPC_URL`, `BASE_LOGS_RPC_URL`, `BASE_PUBLIC_RPC_URLS` | Existing worker RPC routing overrides; paid endpoints/keys remain private. See actual config and RPC docs for routing, budget and log limits. |
 | `DEVERT_CONTRACT_ADDRESS`, `DEVERT_CONFIRMATIONS=2` | Verified independent campaign address and confirmation depth. |
 | `DEVERT_SCHEDULER_PRIVATE_KEY` | Dedicated low-balance role wallet; existing fallback is `DJUKE_FULFILLER_PRIVATE_KEY`. No keys are used/provisioned in this task. |
