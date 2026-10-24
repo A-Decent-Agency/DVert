@@ -35,7 +35,18 @@ test('supporter/ENS preparation records requested terms without inventing releas
   assert.equal(inputs.royalty.recipientIdentity, 'decentagency.eth');
   assert.equal(inputs.royalty.recipient, '0xcAeEd8422fB5682C298B7F0971906d446fFd4e7a');
   assert.equal(inputs.royalty.recipientVerified, true);
-  assert.equal(inputs.royalty.verification.block, 26262074);
+  assert.equal(inputs.royalty.verification.block, 26262247);
+  assert.equal(inputs.royalty.onchainConfigured, false);
+  assert.equal(inputs.royalty.status, 'intended-not-configured-onchain');
+  assert.deepEqual(inputs.initialEditionRecipient, {
+    identity: 'decentagency.eth', address: inputs.royalty.recipient, quantity: 1000,
+    status: 'intended-unminted', onchainVerified: false,
+  });
+  assert.match(inputs.recipientReview, /Refresh ENS/);
+  assert.equal(evidence.intendedRecipients.royaltyAddress, inputs.royalty.recipient);
+  assert.equal(evidence.intendedRecipients.initialEditionAddress, inputs.initialEditionRecipient.address);
+  assert.equal(evidence.intendedRecipients.initialEditionQuantity, 1000);
+  assert.equal(evidence.intendedRecipients.onchainVerified, false);
   assert.equal(inputs.primarySalesRouting.status, 'unconfirmed');
   assert.equal(inputs.primarySalesRouting.recipient, null);
   assert.equal(inputs.nftAdminPlan.currentlyAgencyAdmin, false);

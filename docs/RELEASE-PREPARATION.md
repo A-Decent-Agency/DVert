@@ -31,11 +31,19 @@ No ENS namehash, transaction hash, CID or token ID is invented here.
 10 USDC each, Base chain 8453, 1,000 bps (10%) royalty signal**. ERC-1155 edition
 token/listing addresses and IDs are unset. Approved royalty recipient
 `decentagency.eth` resolved to `0xcAeEd8422fB5682C298B7F0971906d446fFd4e7a`
-in the parent coordinator's read-only Ethereum block **26262074** verification.
+in the parent coordinator's latest read-only Ethereum block **26262247**
+resolution and parent-name-owner verification.
 The draft metadata now records that recipient, not a fabricated contract address.
 Recheck resolution before any eventual signature. The royalty field is a signal,
 not a guaranteed payment. **Primary-sales routing is unconfirmed**; the existing
 escrow retains proceeds, and royalty intent does not reroute primary sales.
+The user also explicitly chose that same Agency wallet as the **initial
+recipient of all 1,000 editions**. Draft inputs/evidence now record the intended
+address/quantity, not a null placeholder. `onchainConfigured`/
+`onchainVerified` remain false: no mint, transfer, royalty setup or role grant
+has executed. Refresh ENS resolution, parent/name control and Base role state
+before any eventual signature. The kit's protocol creator identity remains
+unchanged; the initial-recipient intent is not a protocol CREATOR override.
 No investment, financial return or buyer purchase is represented.
 
 The user approved both hosted-service embeds and documented independent

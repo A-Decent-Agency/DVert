@@ -15,8 +15,9 @@ No supporter token, stock, listing, IPFS pin or release transaction is claimed.
 Choose [hosted-service onboarding](docs/ONBOARDING.md) to reuse the existing
 shared worker/contracts, or the [independent deployment runbook](docs/INDEPENDENT-DEPLOYMENT.md)
 for a separately operated Base/worker stack. Both modes are approved; independent
-deployment needs reviewed operator-specific contract-script adaptation and
-playback/mirror infrastructure, **not** just a changed service URL. Publication
+deployment now has a key-free unsigned constructor/setup-plan CLI using pinned
+DecentMarket artifacts and operator-reviewed config. It still needs actual
+wallet deployment and playback/mirror infrastructure, **not** just a changed service URL. Publication
 requires verification; wallet signatures remain paused.
 
 ## Clone and run
@@ -24,8 +25,8 @@ requires verification; wallet signatures remain paused.
 ```sh
 git clone https://github.com/A-Decent-Agency/DVert.git
 cd DVert
-# Until reviewed/merged, check out the standalone product PR branch:
-git checkout feat/standalone-dvert
+# Fresh clone uses main. For reproducible use, select an actual published
+# release tag or reviewed commit; do not invent a release tag.
 npm run serve
 # http://127.0.0.1:8792/widget.html
 ```
@@ -45,6 +46,22 @@ npm test
 npm run verify
 npm run preflight # GET-only hosted worker snapshot checks; no wallet
 ```
+
+For independent contract preparation, follow the runbook's exact pinned
+clone/compile steps, fill `examples/deployment.operator.json` with reviewed
+public values, then run:
+
+```sh
+npm run deployment:plan -- --stage campaign \
+  --config .deployment-plans/operator.json --market .deployment-source \
+  --out .deployment-plans/campaign.unsigned.json
+```
+
+Queue planning requires the operator-confirmed campaign receipt; setup requires
+both real deployment receipts. No key, RPC, wallet, signature or broadcast is
+used by the CLI. The example intentionally fails until reviewed values replace
+its null fields. Keep signatures paused; do not mistake an unsigned plan for
+authority to deploy.
 
 ## Embed in an existing host
 

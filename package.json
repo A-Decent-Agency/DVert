@@ -6,12 +6,14 @@
   "description": "Cloneable DVert advertising widget; unsigned, unreleased supporter draft",
   "license": "Apache-2.0",
   "devDependencies": {
+    "ethers": "6.16.0",
     "jsdom": "^26.1.0"
   },
   "scripts": {
     "test": "node --test test/*.test.mjs",
     "verify": "node scripts/verify-source.mjs",
     "preflight": "node scripts/preflight.mjs",
+    "deployment:plan": "node scripts/deployment-plan.mjs",
     "serve": "node scripts/serve.mjs",
     "vendor": "node scripts/vendor-busking.mjs"
   }

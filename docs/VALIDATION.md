@@ -2,7 +2,10 @@
 
 ## Native tests
 
-- Product: `npm test` → **20/20 passing**, using native `node --test`.
+- Product: `npm test` → **26/26 passing**, using native `node --test` with the
+  freshly compiled pinned `.deployment-source` checkout present. Without that
+  local checkout, four real-artifact integration tests explicitly skip; the
+  dedicated deployment-plan CI job compiles it and requires both artifacts.
 - Freeze: `npm run verify` → every copied source and generated panel/style
   hash matches `source-lock.json` at upstream
   `701b931d3f197b0addcfba192d2be5d25ff5dfb4`.
@@ -99,8 +102,12 @@ These are time-specific worker snapshots, not a promise of continuous playback
 or verification of bytecode, roles, signed POST access or new-origin approval.
 During browser polling, the real worker also briefly reported waiting for a
 durable checkpoint/settlement and disabled checkout; availability is dynamic.
-Agency Pages/ENS signed submission/removal acceptance remains **unverified**.
-Exact routes and origin requirements are documented in [ONBOARDING](ONBOARDING.md).
+Agency Pages/ENS actual signed submission/removal acceptance remains
+**unverified**. Parent coordination subsequently reported HTTP **204 OPTIONS**
+preflight success for `https://a-decent-agency.github.io`,
+`https://djuke.eth.limo` and `https://dvert.eth.limo`; that is origin-preflight
+evidence, not signed-write execution. Exact routes and requirements are
+documented in [ONBOARDING](ONBOARDING.md).
 
 ## Release preparation boundary
 
@@ -110,7 +117,56 @@ No caller was dispatched. `PINATA_JWT` provisioning is coordinated separately;
 no secret value was read/copied. Announcements default off, primary-sale
 routing remains unconfirmed, and the Agency NFT admin grant remains unsigned,
 not a current-role claim. Draft royalty resolution evidence is attributed to
-the parent coordinator's Ethereum block 26262074 verification.
+the parent coordinator's latest Ethereum block **26262247** resolution and
+parent-name-owner verification. Approved Agency royalty/initial-edition
+recipient addresses are filled as intent; no royalty configuration,
+mint/transfer, role grant or primary-sales-routing change is claimed.
+
+## Independent unsigned deployment preparation follow-up
+
+Freshly cloned DecentMarket at exact commit
+`094b4acca947437d4a3b1344ddd75441ddb18f2d` inside this owned product's ignored
+`.deployment-source/`, installed its locked dependencies with scripts disabled
+and compiled using the real pinned Hardhat configuration without wallet env
+keys or `BASE_FORK_RPC`. No source worktree outside this product was changed.
+`deployment-source-lock.json` records the resulting exact source/config/
+ABI/bytecode/compiler fingerprints. The frozen widget vendor remains unchanged.
+
+Six additional native tests cover:
+
+- Refusal of unreviewed examples, secrets/unknown fields, unsupported chain/
+  token, missing/zero/invalid/overlapping role/dependency addresses, duplicate
+  fund slugs, unsafe service URL and ambiguous queue-runtime signer selection.
+- Campaign-before-queue ordering, positive operator-reviewed receipt fields,
+  refusal of predicted addresses and recorded duplicate deployments.
+- Real artifact ABI constructor encoding and exact initcode concatenation for
+  all nine campaign/queue arguments, native Base USDC, correct fund order,
+  no `to`/gas/nonce/sender for creation, zero value and initcode checksum.
+- ABI-decoded setup `setPaused(true)` and optional explicit non-revoking
+  `grantRole(FULFILLER_ROLE, scheduler)`, with the actual admin/queue target;
+  no activation calldata. Separate-fulfiller mode clearly requires a worker
+  runtime adapter rather than an invented environment variable.
+- Tampered ABI/bytecode/source/compiler/link-reference rejection against real
+  compiled artifacts and Hardhat build-info.
+- Real CLI execution using clearly synthetic config/receipt fixtures;
+  no wallet/key parsing even when invalid key-like env values are present,
+  unsafe flag refusal and exclusive-create output protection.
+
+Also ran the reviewed source's existing local tests **inside the owned clone**:
+
+```sh
+cd .deployment-source
+env -u PRIVATE_KEY -u MINT_OWNER_PRIVATE_KEY -u BASE_FORK_RPC -u NODE_OPTIONS \
+  ./node_modules/.bin/hardhat test --no-compile \
+  test/DeVert_v01.test.js test/DeVertQueue_v02.test.js
+```
+
+Result: **16 passing, one pending**. The pending case is the explicitly
+fork-dependent Base rehearsal; no fork was enabled or claimed. These local
+in-memory/mock contract tests establish constructor pause/role behavior and
+existing campaign/queue semantics, not a production wallet deployment. The
+planner performs no RPC and treats supplied confirmations as operator
+assertions. All real wallet actions remain paused.
 
 No production service was restarted/deployed and no state-mutating backend
 or blockchain request was authorized. The temporary local smoke server is
