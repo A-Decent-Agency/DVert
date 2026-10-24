@@ -112,7 +112,7 @@ documented in [ONBOARDING](ONBOARDING.md).
 ## Release preparation boundary
 
 Both release callers use DecentHead
-`3b2a72f7f8c49fb2af89ea7df2ead8e338e0e870` for `uses` and `head_ref`.
+`a0f3bdebcbb5ded8437446797fcba28272af8098` for `uses` and `head_ref`.
 Subsequent v0.1.0 publication ran preparation successfully using the configured
 `PINATA_JWT`; no secret value was read/copied. Announcements default off and
 primary-sale routing remains unconfirmed. The steward corrected the wallet

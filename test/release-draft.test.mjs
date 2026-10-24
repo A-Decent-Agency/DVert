@@ -6,7 +6,7 @@ const json = file => JSON.parse(readFileSync(new URL(`../releases/v0.1.0-draft/$
 const text = file => readFileSync(new URL(`../${file}`, import.meta.url), 'utf8');
 
 test('supporter callers share immutable DecentHead pin and announcements default off', () => {
-  const sha = '3b2a72f7f8c49fb2af89ea7df2ead8e338e0e870';
+  const sha = 'a0f3bdebcbb5ded8437446797fcba28272af8098';
   for (const [file, workflow] of [['supporter-release.yml', 'prepare'], ['supporter-announce.yml', 'announce']]) {
     const caller = text(`.github/workflows/${file}`);
     assert.ok(caller.includes(`product-supporter-${workflow}.yml@${sha}`));
@@ -15,6 +15,7 @@ test('supporter callers share immutable DecentHead pin and announcements default
   }
   assert.ok(text('.github/workflows/supporter-announce.yml').includes("if: ${{ vars.SUPPORTER_DISCORD_ENABLED == 'true' }}"));
   assert.ok(text('.github/workflows/supporter-release.yml').includes('product_name: DVert'));
+  assert.match(text('.github/workflows/supporter-release.yml'), /quantity: '100'/);
 });
 
 test('release root renders the actual widget rather than a supporter-card landing page', () => {
@@ -28,7 +29,7 @@ test('supporter/ENS preparation records requested terms without inventing releas
   const inputs = json('supporter-inputs.json');
   const metadata = json('metadata.draft.json');
   const evidence = json('supporter-evidence.draft.json');
-  assert.equal(inputs.editions, 1000);
+  assert.equal(inputs.editions, 100);
   assert.equal(inputs.chainId, 8453);
   assert.equal(inputs.unitPrice.units, '10000000');
   assert.equal(inputs.royalty.basisPoints, 1000);
@@ -39,13 +40,13 @@ test('supporter/ENS preparation records requested terms without inventing releas
   assert.equal(inputs.royalty.onchainConfigured, false);
   assert.equal(inputs.royalty.status, 'intended-not-configured-onchain');
   assert.deepEqual(inputs.initialEditionRecipient, {
-    identity: 'thejollylama.eth', address: inputs.royalty.recipient, quantity: 1000,
+    identity: 'thejollylama.eth', address: inputs.royalty.recipient, quantity: 100,
     status: 'intended-unminted', onchainVerified: false,
   });
   assert.match(inputs.recipientReview, /Refresh ENS/);
   assert.equal(evidence.intendedRecipients.royaltyAddress, inputs.royalty.recipient);
   assert.equal(evidence.intendedRecipients.initialEditionAddress, inputs.initialEditionRecipient.address);
-  assert.equal(evidence.intendedRecipients.initialEditionQuantity, 1000);
+  assert.equal(evidence.intendedRecipients.initialEditionQuantity, 100);
   assert.equal(evidence.intendedRecipients.onchainVerified, false);
   assert.equal(inputs.primarySalesRouting.status, 'unconfirmed');
   assert.equal(inputs.primarySalesRouting.recipient, null);
