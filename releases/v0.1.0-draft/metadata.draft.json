@@ -1,0 +1,17 @@
+{
+  "name": "DVert v0.1.0 — Supporter edition draft",
+  "description": "Unsigned, unminted, unreleased preparation for a supporter-funded cloneable advertising widget by The Jolly LaMa / A Decent Agency. Proposed 1,000 editions at 10 USDC on Base. This file is not a published token URI and proves no mint, listing, purchase or financial return.",
+  "external_url": "https://github.com/A-Decent-Agency/DVert",
+  "image": null,
+  "animation_url": null,
+  "creator": "thejollylama.eth",
+  "seller_fee_basis_points": 1000,
+  "fee_recipient": "0xcAeEd8422fB5682C298B7F0971906d446fFd4e7a",
+  "attributes": [
+    { "trait_type": "Product", "value": "DVert" },
+    { "trait_type": "Version proposal", "value": "0.1.0" },
+    { "trait_type": "Status", "value": "Unsigned / unminted / unreleased draft" },
+    { "trait_type": "Proposed edition supply", "value": 1000 },
+    { "trait_type": "Proposed unit price", "value": "10 USDC on Base" }
+  ]
+}

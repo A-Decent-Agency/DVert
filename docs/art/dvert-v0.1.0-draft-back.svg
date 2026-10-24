@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200" role="img" aria-labelledby="title description">
+  <title id="title">DVert v0.1.0 development draft provenance</title>
+  <desc id="description">Unsigned unminted unreleased draft. Source derived from DecentBusking, by The Jolly LaMa and A Decent Agency. Proposed 1000 supporter editions at 10 USDC on Base, 1000 basis points royalty signal. No token, listing or pin is claimed.</desc>
+  <rect width="1200" height="1200" rx="56" fill="#17140f"/>
+  <rect x="45" y="45" width="1110" height="1110" rx="36" fill="none" stroke="#f5cf66" stroke-width="3"/>
+  <g fill="#f6efdd" font-family="system-ui,sans-serif">
+    <text x="95" y="160" fill="#f5cf66" font-size="84" font-weight="700">DVert</text>
+    <text x="95" y="220" font-size="34">DVert.decentagency.eth</text>
+    <text x="95" y="300" fill="#f5cf66" font-size="38">v0.1.0 · DEVELOPMENT DRAFT</text>
+    <text x="95" y="375" font-size="32">The Jolly LaMa / A Decent Agency</text>
+    <text x="95" y="430" font-size="28">Creator identity: thejollylama.eth</text>
+    <text x="95" y="515" font-size="30">Derived from DecentBusking</text>
+    <text x="95" y="565" font-size="23">701b931d3f197b0addcfba192d2be5d25ff5dfb4</text>
+    <text x="95" y="635" font-size="28">Code Apache-2.0 · Original art/docs CC BY 4.0</text>
+    <text x="95" y="730" fill="#f5cf66" font-size="30">PROPOSED SUPPORTER INPUTS ONLY</text>
+    <text x="95" y="790" font-size="30">1,000 editions × 10 USDC · Base</text>
+    <text x="95" y="845" font-size="30">1,000 bps royalty signal · no return promised</text>
+    <text x="95" y="940" font-size="34" font-weight="700">UNSIGNED · UNMINTED · UNRELEASED</text>
+    <text x="95" y="1000" font-size="27">No ENS transaction, IPFS pin, token or listing claimed.</text>
+    <text x="95" y="1080" font-size="24">github.com/A-Decent-Agency/DVert · 2026-10-24</text>
+  </g>
+</svg>

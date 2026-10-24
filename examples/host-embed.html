@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DVert in a DecentHead host</title>
+  <!-- Prerequisite: adopt the real DecentHead 2.0.0 files per docs/HOST-INTEGRATION.md.
+       On an existing host, retain its one header/config; do not add another. -->
+  <script src="../decent-head.config.js"></script>
+  <script type="module" src="../vendor/decent-head/2.0.0/js/main.js"></script>
+</head>
+<body>
+  <decent-header></decent-header>
+  <main>
+    <h1>Host advertising</h1>
+    <div id="advertising"></div>
+  </main>
+  <script type="module">
+    import { mount } from '../widget.js';
+    const dvert = mount(document.getElementById('advertising'), {
+      title: 'DVert',
+      theme: { accent: '#7af0c6', maxWidth: '480px' },
+      // No head injection or connect call: the existing shared session is resolved
+      // now or on decenthead:ready. The header loads its local ethers on connection.
+      // Binary media upload is deliberately absent until the host supplies it.
+    });
+    window.addEventListener('pagehide', () => dvert.destroy(), { once: true });
+  </script>
+</body>
+</html>
