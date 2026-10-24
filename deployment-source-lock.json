@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "repository": "https://github.com/TheJollyLaMa/DecentMarket",
+  "commit": "094b4acca947437d4a3b1344ddd75441ddb18f2d",
+  "solcLongVersion": "0.8.26+commit.8a97fa7a",
+  "settings": {
+    "optimizer": { "enabled": true, "runs": 200 },
+    "evmVersion": "cancun",
+    "outputSelection": { "*": { "*": ["abi", "evm.bytecode", "evm.deployedBytecode", "evm.methodIdentifiers", "metadata"], "": ["ast"] } }
+  },
+  "files": {
+    "hardhat.config.js": "ec86ff3171d4d6e126e10d9a0b09361c6f3492bf7ef70b56b383193fa4f8aa2d",
+    "package.json": "51083c93d74ff9d7a832ab095cce633a027e4052da03986ae6ee064f471b9fbb",
+    "package-lock.json": "1cf33b416a2b135170e9a92b25c7ebc52d133f7a882a9e6b468882fe523531b6"
+  },
+  "sources": {
+    "@openzeppelin/contracts/access/AccessControl.sol": "97abba9ae4ee97f16f17b7b688d90f6f1195b79edfba344eacc58406e088b51e",
+    "@openzeppelin/contracts/access/IAccessControl.sol": "140304b7e99d517c57a13f391dfd3b550ca633a507f7b2af130f391b6cd89cc5",
+    "@openzeppelin/contracts/interfaces/IERC1363.sol": "9c3a75a925a6dac9e88b03cddc58d42fe3131b0aaaad84408521f3f7af2f991b",
+    "@openzeppelin/contracts/interfaces/IERC165.sol": "dfb3f56fa928a7c6cae41a7ce2c86b9210fa18d33fa26389099d66a0fa790368",
+    "@openzeppelin/contracts/interfaces/IERC20.sol": "0158e2d3e0e28bedd99eec13dcf1a8aa3a70a5b7e4bb2ad709609c95fcc740d1",
+    "@openzeppelin/contracts/token/ERC20/IERC20.sol": "01b6f5c4fa45fd38822b286ecef6daf983d27306dd6362496fa71b3e4600b72c",
+    "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": "0b7132f17d14d1d84b41b0bb429be62dafdff00fd3470f68724d8018eb07f57a",
+    "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol": "c2394cb2a327f234711da34884947f4aa0f6dd2791d1d6303a0c7acfaf81bca3",
+    "@openzeppelin/contracts/utils/Context.sol": "847fda5460fee70f56f4200f59b82ae622bb03c79c77e67af010e31b7e2cc5b6",
+    "@openzeppelin/contracts/utils/Pausable.sol": "2c26130748f06552c65ca74d89eaf78c9324a3cbac3ba6fdbadaa8beba0cb0b4",
+    "@openzeppelin/contracts/utils/ReentrancyGuard.sol": "94e409e8f6e3184236651a6cc2b1a6a3ea0f0a25eb85b71e524ad5791bb2fbc8",
+    "@openzeppelin/contracts/utils/StorageSlot.sol": "75704538dcb223239280c6726d9a31cf769a7816718517c997fc7d63bdb70778",
+    "@openzeppelin/contracts/utils/introspection/ERC165.sol": "61a2b12c96857aaa35f48aeda67a4281637a42494c0b3795be0ae976aa7b3793",
+    "@openzeppelin/contracts/utils/introspection/IERC165.sol": "9055c2994b37dea1a41b7b7926dcb510f05dbe2540b0aafc5fbee9558fffd0ca",
+    "contracts/DeVert_v0.1.sol": "b4fe2e32020915261dbe7d11c10b6a1f56e2b472884e0c9a030ffa872e002803",
+    "contracts/DeVertQueue_v0.1.sol": "aa7af2f9582176581ef43782b8e1ddb2ce85e7068f200021793b42e51aab269a",
+    "contracts/DeVertQueue_v0.2.sol": "1fc9953d28959108bf852e31ea654d1f6b08e1de3226e7e839670eba1d8f060f"
+  },
+  "contracts": {
+    "campaign": {
+      "artifact": "artifacts/contracts/DeVert_v0.1.sol/DeVert_v0_1.json",
+      "contractName": "DeVert_v0_1",
+      "sourceName": "contracts/DeVert_v0.1.sol",
+      "abiSha256": "bacb44dffb3031826d9d73024f037dac0dfcf287c197ba798c6fb6c59dfa07cb",
+      "bytecodeSha256": "c50876213f989f5da984c1cc7b6e613f98c57cd134681adef5d19a22422af694",
+      "deployedBytecodeSha256": "e544f2ec4102908a3bf732366ebac045ce62bf5ec5800d412a922577de5a67c3"
+    },
+    "queue": {
+      "artifact": "artifacts/contracts/DeVertQueue_v0.2.sol/DeVertQueue_v0_2.json",
+      "contractName": "DeVertQueue_v0_2",
+      "sourceName": "contracts/DeVertQueue_v0.2.sol",
+      "abiSha256": "ca7adc8bbbb45b0a6040a72f373651ed67d5dfeba989174352190bd863dc0e10",
+      "bytecodeSha256": "b5c3882b1da8bedd7f95427a2bd13470294e459ea9c1355e71f3e11d8b3dc605",
+      "deployedBytecodeSha256": "b0667db5993f9f176e698b4a5344dc30b98270ca387052a34a21e886599f7726"
+    }
+  }
+}

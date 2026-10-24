@@ -7,6 +7,15 @@
   "editionSupplyProposal": 1000,
   "priceUnitsProposal": "10000000",
   "royaltyBasisPointsProposal": 1000,
+  "intendedRecipients": {
+    "identity": "decentagency.eth",
+    "royaltyAddress": "0xcAeEd8422fB5682C298B7F0971906d446fFd4e7a",
+    "initialEditionAddress": "0xcAeEd8422fB5682C298B7F0971906d446fFd4e7a",
+    "initialEditionQuantity": 1000,
+    "onchainVerified": false,
+    "ensObservedEthereumBlock": 26262247,
+    "note": "Approved intent only. Refresh ENS and role state before signing; primary-sales routing remains unconfirmed."
+  },
   "sourceTag": null,
   "sourceArchive": null,
   "sourceArchiveSha256": null,

@@ -4,6 +4,8 @@ This mode reuses the existing DecentBusking worker, approval catalog, Base
 campaign/queue contracts and playback service. It does **not** give each embed
 an independent campaign market, schedule, treasury or backend. Independent
 operators must use [the deployment boundary/runbook](INDEPENDENT-DEPLOYMENT.md).
+It now includes a reproducible offline constructor/setup-plan CLI, not an
+instruction to patch the project-owner deploy scripts.
 Both distribution modes are approved; publication still requires verification.
 This guide performs no deployment, signatures, uploads or transactions.
 
@@ -91,10 +93,15 @@ The exact signed DVert POST acceptance routes at the configured worker are:
 | `/api/devert/remove` | Original signed campaign-removal payload; actual advertiser/admin policy and durable removal. This is a destructive operation, not a safe authorization probe. |
 
 `/api/devert/loop/vote` is an additional user-triggered vote POST; do not use
-it as a harmless read-only CORS probe. The local preflight does **not** issue
-any POST, sign messages or prove any of these routes are currently approved
-for Agency Pages or ENS hosts. Production signed authorization is **unverified**
-in this task; Render configuration was not changed.
+it as a harmless read-only CORS probe. The local preflight does **not** issue any POST, sign messages or prove these
+routes' signed-write authorization. Parent coordination subsequently reported
+**HTTP 204 CORS OPTIONS preflight** success for the signed-write routes from
+`https://a-decent-agency.github.io`, `https://djuke.eth.limo` and
+`https://dvert.eth.limo`. This closes the reported origin-preflight check for
+those exact origins, not actual signed upload/submission/removal acceptance,
+ENS content publication or approval/mint flow. Those signed writes were not
+exercised here while signatures remain paused. This product task did not
+change Render configuration.
 
 Later separately authorized acceptance must verify:
 public-media consent → signed upload URL → real File multipart upload →

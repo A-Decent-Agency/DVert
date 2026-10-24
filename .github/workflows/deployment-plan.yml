@@ -1,0 +1,33 @@
+name: Unsigned independent deployment plan
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  deployment-plan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - uses: actions/checkout@v4
+        with:
+          repository: TheJollyLaMa/DecentMarket
+          ref: 094b4acca947437d4a3b1344ddd75441ddb18f2d
+          path: .deployment-source
+          persist-credentials: false
+      - name: Compile pinned DecentMarket without keys or fork
+        working-directory: .deployment-source
+        run: |
+          npm ci --ignore-scripts --no-audit --no-fund
+          env -u PRIVATE_KEY -u MINT_OWNER_PRIVATE_KEY -u BASE_FORK_RPC -u NODE_OPTIONS ./node_modules/.bin/hardhat compile
+      - name: Require artifacts and test exact encoded plans
+        run: |
+          test -f .deployment-source/artifacts/contracts/DeVert_v0.1.sol/DeVert_v0_1.json
+          test -f .deployment-source/artifacts/contracts/DeVertQueue_v0.2.sol/DeVertQueue_v0_2.json
+          node --test test/deployment-plan.test.mjs
+      - name: Test isolated contract behavior (no RPC fork)
+        working-directory: .deployment-source
+        run: env -u PRIVATE_KEY -u MINT_OWNER_PRIVATE_KEY -u BASE_FORK_RPC -u NODE_OPTIONS ./node_modules/.bin/hardhat test --no-compile test/DeVert_v01.test.js test/DeVertQueue_v02.test.js

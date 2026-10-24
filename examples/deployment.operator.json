@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "reviewed": false,
+  "chainId": 8453,
+  "token": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+  "router": null,
+  "djuke": null,
+  "admin": null,
+  "scheduler": null,
+  "fulfiller": null,
+  "funds": {
+    "playback": "dbusk-playback",
+    "topTen": "dbusk-top10",
+    "pinners": "dbusk-pinners",
+    "repo": "dbusk-repo-dev"
+  },
+  "serviceUrl": null,
+  "workerQueueSigner": "scheduler"
+}
