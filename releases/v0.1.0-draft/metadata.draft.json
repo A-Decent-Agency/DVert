@@ -6,7 +6,7 @@
   "animation_url": null,
   "creator": "thejollylama.eth",
   "seller_fee_basis_points": 1000,
-  "fee_recipient": "0xcAeEd8422fB5682C298B7F0971906d446fFd4e7a",
+  "fee_recipient": "0x807061DF657A7697c04045dA7d16D941861cAABc",
   "attributes": [
     { "trait_type": "Product", "value": "DVert" },
     { "trait_type": "Version proposal", "value": "0.1.0" },

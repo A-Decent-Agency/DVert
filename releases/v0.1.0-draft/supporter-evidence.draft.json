@@ -8,13 +8,13 @@
   "priceUnitsProposal": "10000000",
   "royaltyBasisPointsProposal": 1000,
   "intendedRecipients": {
-    "identity": "decentagency.eth",
-    "royaltyAddress": "0xcAeEd8422fB5682C298B7F0971906d446fFd4e7a",
-    "initialEditionAddress": "0xcAeEd8422fB5682C298B7F0971906d446fFd4e7a",
+    "identity": "thejollylama.eth",
+    "royaltyAddress": "0x807061DF657A7697c04045dA7d16D941861cAABc",
+    "initialEditionAddress": "0x807061DF657A7697c04045dA7d16D941861cAABc",
     "initialEditionQuantity": 1000,
     "onchainVerified": false,
-    "ensObservedEthereumBlock": 26262247,
-    "note": "Approved intent only. Refresh ENS and role state before signing; primary-sales routing remains unconfirmed."
+    "ensObservedEthereumBlock": null,
+    "note": "Steward corrected personal-token/Agency-ENS split. Refresh ENS and role state before signing; primary-sales routing remains unconfirmed."
   },
   "sourceTag": null,
   "sourceArchive": null,

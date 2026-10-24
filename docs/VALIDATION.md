@@ -113,14 +113,14 @@ documented in [ONBOARDING](ONBOARDING.md).
 
 Both release callers use DecentHead
 `3b2a72f7f8c49fb2af89ea7df2ead8e338e0e870` for `uses` and `head_ref`.
-No caller was dispatched. `PINATA_JWT` provisioning is coordinated separately;
-no secret value was read/copied. Announcements default off, primary-sale
-routing remains unconfirmed, and the Agency NFT admin grant remains unsigned,
-not a current-role claim. Draft royalty resolution evidence is attributed to
-the parent coordinator's latest Ethereum block **26262247** resolution and
-parent-name-owner verification. Approved Agency royalty/initial-edition
-recipient addresses are filled as intent; no royalty configuration,
-mint/transfer, role grant or primary-sales-routing change is claimed.
+Subsequent v0.1.0 publication ran preparation successfully using the configured
+`PINATA_JWT`; no secret value was read/copied. Announcements default off and
+primary-sale routing remains unconfirmed. The steward corrected the wallet
+split: thejollylama.eth handles supporter tokens and decentagency.eth controls
+ENS only. The proposed Agency NFT-admin grant is withdrawn. Current draft
+recipient fields reflect personal-wallet intent and require fresh verification;
+no royalty configuration, mint/transfer, role grant or sales-routing change is
+claimed. See [the current signing boundaries](RELEASE-PREPARATION.md).
 
 ## Independent unsigned deployment preparation follow-up
 

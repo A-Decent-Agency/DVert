@@ -32,14 +32,14 @@ test('supporter/ENS preparation records requested terms without inventing releas
   assert.equal(inputs.chainId, 8453);
   assert.equal(inputs.unitPrice.units, '10000000');
   assert.equal(inputs.royalty.basisPoints, 1000);
-  assert.equal(inputs.royalty.recipientIdentity, 'decentagency.eth');
-  assert.equal(inputs.royalty.recipient, '0xcAeEd8422fB5682C298B7F0971906d446fFd4e7a');
-  assert.equal(inputs.royalty.recipientVerified, true);
-  assert.equal(inputs.royalty.verification.block, 26262247);
+  assert.equal(inputs.royalty.recipientIdentity, 'thejollylama.eth');
+  assert.equal(inputs.royalty.recipient, '0x807061DF657A7697c04045dA7d16D941861cAABc');
+  assert.equal(inputs.royalty.recipientVerified, false);
+  assert.equal(inputs.royalty.verification.block, null);
   assert.equal(inputs.royalty.onchainConfigured, false);
   assert.equal(inputs.royalty.status, 'intended-not-configured-onchain');
   assert.deepEqual(inputs.initialEditionRecipient, {
-    identity: 'decentagency.eth', address: inputs.royalty.recipient, quantity: 1000,
+    identity: 'thejollylama.eth', address: inputs.royalty.recipient, quantity: 1000,
     status: 'intended-unminted', onchainVerified: false,
   });
   assert.match(inputs.recipientReview, /Refresh ENS/);
@@ -49,9 +49,9 @@ test('supporter/ENS preparation records requested terms without inventing releas
   assert.equal(evidence.intendedRecipients.onchainVerified, false);
   assert.equal(inputs.primarySalesRouting.status, 'unconfirmed');
   assert.equal(inputs.primarySalesRouting.recipient, null);
-  assert.equal(inputs.nftAdminPlan.currentlyAgencyAdmin, false);
+  assert.equal(inputs.nftAdminPlan.additionalAdminAddress, null);
   assert.equal(inputs.nftAdminPlan.revokeExistingAdmin, false);
-  assert.equal(inputs.nftAdminPlan.status, 'unsigned-not-executed');
+  assert.equal(inputs.nftAdminPlan.status, 'withdrawn-not-required-personal-admin-mints');
   assert.deepEqual(inputs.distributionModes, ['hosted-service-embed', 'documented-independent-deployment']);
   assert.match(inputs.publicationGate, /Wallet signatures remain paused/);
   assert.equal(inputs.creatorIdentity, 'thejollylama.eth');
