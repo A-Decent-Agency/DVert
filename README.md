@@ -1,6 +1,6 @@
 # DVert
 
-**Cloneable advertising widget · `DVert.decentagency.eth` · v0.1.0 development draft**
+**Cloneable advertising widget · `DVert.decentagency.eth`**
 
 A plain ES-module advertising panel, extracted from the real
 [DecentBusking DVert controllers](https://github.com/TheJollyLaMa/DecentBusking/pull/281).
@@ -8,9 +8,10 @@ This is not an iframe, mock checkout, replacement worker or new contract.
 The product supports real campaign purchases, both paid priority tiers, availability
 gates, wallet-owned adverts, removal, eligible refunds and public funding history.
 
-**Status:** open-PR source, not a tagged release. The identity above is a confirmed
-display name, not a claim that ENS records were registered or changed.
-No supporter token, stock, listing, IPFS pin or release transaction is claimed.
+**Status:** merged product with published v0.2.1 ENS, mint and listing evidence:
+100 supporter editions (token 73), listing 3.
+See [clone, adapt and support](docs/CLONE_AND_ADAPT.md) for dated receipts and
+integration boundaries; current stock and resolution must be rechecked.
 
 Choose [hosted-service onboarding](docs/ONBOARDING.md) to reuse the existing
 shared worker/contracts, or the [independent deployment runbook](docs/INDEPENDENT-DEPLOYMENT.md)
@@ -195,8 +196,9 @@ Support: [DVert issues](https://github.com/A-Decent-Agency/DVert/issues).
 Upstream financial behavior: [Busking #246](https://github.com/TheJollyLaMa/DecentBusking/issues/246).
 Report version, source SHA, origin, visible error and public transaction/request
 IDs only; never submit secrets, private files or wallet recovery phrases.
-`docs/RELEASE-PREPARATION.md` and `releases/v0.1.0-draft/` contain **unsigned,
-unminted draft inputs**, not release evidence.
+`releases/v0.1.0-draft/` contains **unsigned historical inputs**, not receipts.
+The [release guide](docs/RELEASE-PREPARATION.md) distinguishes those inputs from
+the published mint/listing evidence.
 
 Code: Apache-2.0. Original non-code art/documentation: CC BY 4.0.
 Retain [LICENSE](LICENSE), [NOTICE](NOTICE), upstream provenance and attribution:

@@ -1,5 +1,14 @@
 # DVert ENS and supporter release preparation
 
+## Published evidence supersedes the historical checklist
+
+The v0.2.1 release now has public ENS, mint and listing receipts: token **73**,
+listing **3**. See [clone, adapt and support](CLONE_AND_ADAPT.md) for the exact
+release source and dated snapshots. Do not register or mint a duplicate.
+The preparation narrative below is retained as historical guidance; its
+unminted/unlisted and unconfirmed-routing statements are not current status.
+Local draft JSON remains planning input, not a replacement for receipts.
+
 The [v0.1.0 release](https://github.com/A-Decent-Agency/DVert/releases/tag/v0.1.0)
 is published with frozen source, runnable site, artwork, presentation and metadata
 assets. Preparation passed; **no supporter registration, mint, transfer, listing
