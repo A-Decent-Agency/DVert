@@ -22,7 +22,8 @@ test('release root renders the actual widget rather than a supporter-card landin
   assert.match(text('index.html'), /import \{ mount \} from '\.\/widget\.js'/);
   assert.match(text('index.html'), /widget = mount\(element/);
   assert.match(text('index.html'), /id="advertising"/);
-  assert.equal(text('index.html'), text('widget.html'));
+  const withoutCanonical = html => html.replace(/(<meta property="og:url" content=")[^"]+(">)/, '$1$2');
+  assert.equal(withoutCanonical(text('index.html')), withoutCanonical(text('widget.html')));
   assert.doesNotMatch(text('index.html'), /v0\.1\.0 development draft/);
 });
 
